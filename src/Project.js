@@ -5,9 +5,9 @@ const Project = (props) => {
     return (props.public) ?
         (
          <div>
-          <h1>{props.name}</h1>
-          <p>{props.description}</p>
-          <a href={props.url}>View {props.name} in GitHub</a>
+            <h1>{props.name}</h1>
+            <p>{props.description}</p>
+            <a href={props.url}>View {props.name} in GitHub</a>
          </div>
         ) : null;
 }

@@ -9,11 +9,11 @@ Notes and practice creating and testing components in React.
 ## Summary
 React is a JavaScript library for building user interfaces.
 
-* **Declarative**: React makes it painless to create interactive UIs. Design simple views for each state in an application, and React will efficiently update and render just the right components when data changes. Declarative views make  code more predictable, simpler to understand, and easier to debug.
+* **Declarative**: Create interactive UIs by designing simple views for each state in an application, and React will efficiently update and render just the right components when data changes. Declarative views make  code more predictable, simpler to understand, and easier to debug.
   
 * **Component-Based**: Build encapsulated components that manage their own state, then compose them to make complex UIs. Since component logic is written in JavaScript instead of templates, it can easily pass rich data through your app and keep state out of the DOM.
 
-* **Learn Once, Write Anywhere**: React doesn't make assumptions about the rest of the technology stack, so you can develop new features in React without rewriting existing code. React can also render on the server using Node and power mobile apps using React Native.
+* **Learn Once, Write Anywhere**: React doesn't make assumptions about the rest of the technology stack, so new features can be developed in React without rewriting existing code. React can also render on the server using Node and power mobile apps using React Native.
 
 ## Components
 Any time React components are being created and declared, components must start with uppercase, otherwise will assume it is a <HTML> renderable element in lowercase.
@@ -64,12 +64,14 @@ Open http://localhost:3000 to view it in the browser.
 
 * `App.js` will contain the main logic for the rest of the views in an application.
 * JSX should be written in an external component that is called into the `App.js` files.
+* Keep additional logic out of components modules (e.g. array iteration); separation of functions and concerns.
 * Only ternary expressions can be used in App.js file (will not take if statements).
 
+## Boilerplate
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
