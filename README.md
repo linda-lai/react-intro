@@ -176,16 +176,49 @@ ReactDOM.render(
 ```
 
 ## React Props
-Props are a list of properties to pass data to a component.
+Props are a list of properties to pass data from a parent component down to a child component.
 
 Components are customised and made reusable with props.
 
-Using Props:
+> All React components must act like pure functions with respect to their props.
+
+An important detail to remember about props is that they are "read only" (or immutable), which means that a component can only read the props given to it, never change them. The (parent) component higher in the tree owns and controls the property values.
+
+```js
+// Below will not work:
+const Header = (props) => {
+  return (
+    <header>
+      <h1>{ props.title = 'Fun Board' }</h1>
+    </header>
+  );
+}
+
+// React will throw the error: // Cannot assign to read only property 'title' of object.
+```
+
+Using props:
 1. Define the props in a component's JSX tag.
 2. Enable the use of props in a component.
 
+```js
+<Header 
+  title="My Scoreboard" 
+  totalPlayers={5}
+  isFun={true}
+/>
+```
+
+React manages what gets rendered to the DOM.
+
+In order for this process to be fast and efficient, React needs a way to quickly know which items were changed, added, or removed. For this, React gives elements a special built-in prop named **key**.
+
+A key is a unique identifier that gives React a way to quickly and reliably identify an element in a list.
+
+Not all elements need a key prop - only when creating elements by iterating over an array on items that will be rearranged in the DOM.
+
 ## State
-Lorem ipsum
+In React, "state" is the data you want to track in your app. State is what allows you to create components that are dynamic and interactive, and it's the only data that changes over time.
 
 # create-react-app
 ## Boilerplate
