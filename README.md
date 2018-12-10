@@ -217,8 +217,12 @@ A key is a unique identifier that gives React a way to quickly and reliably iden
 
 Not all elements need a key prop - only when creating elements by iterating over an array on items that will be rearranged in the DOM.
 
-## State
-In React, "state" is the data you want to track in your app. State is what allows you to create components that are dynamic and interactive, and it's the only data that changes over time.
+## Class Components/State
+**Class components** offer a more powerful way to build components because they're the only type of components that let you use state.
+
+In React, **"state"** is the data you want to track in your app. State is what allows you to create components that are dynamic and interactive, and it's the only data that changes over time.
+
+If a component is only rendering props in the UI, use a stateless functional component with the `props` passed in as an argument.
 
 # create-react-app
 ## Boilerplate
