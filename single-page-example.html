@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Portfolio</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const Navbar = () => {
+        return (
+          <nav>
+            <a href="https://facebook.com">Facebook</a>
+            <a href="https://twitter.com">Twitter</a>
+            <a href="https://instagram.com">Instagram</a>
+          </nav>
+        );
+      }
+      const Project = (props) => {
+        console.log(props.description);
+        return (
+          <div>
+            <h1>{props.name}</h1>
+            <p>{props.description}</p>
+          </div>
+        )
+      }
+      const App = () => {
+        return (
+          <div>
+            <Navbar />
+            <h1>My Portfolio</h1>
+            <p>hi!</p>
+            <Project
+              name="Rails project"
+              description="Built a cool rails app that solved some problems."
+            />
+            <Project
+              name="Holiday project"
+              description="Completed my homework!!"
+            />
+          </div>
+        )
+      }
+
+      ReactDOM.render(
+        <App />,
+        document.getElementById('root')
+      );
+    </script>
+  </body>
+</html>
