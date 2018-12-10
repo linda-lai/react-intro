@@ -10,15 +10,29 @@ Notes and practice creating and testing components in React.
 React is a JavaScript library for building user interfaces.
 
 * **Declarative**: Create interactive UIs by designing simple views for each state in an application, and React will efficiently update and render just the right components when data changes. Declarative views make  code more predictable, simpler to understand, and easier to debug.
-  
+
 * **Component-Based**: Build encapsulated components that manage their own state, then compose them to make complex UIs. Since component logic is written in JavaScript instead of templates, it can easily pass rich data through your app and keep state out of the DOM.
 
 * **Learn Once, Write Anywhere**: React doesn't make assumptions about the rest of the technology stack, so new features can be developed in React without rewriting existing code. React can also render on the server using Node and power mobile apps using React Native.
 
-## Components
-Any time React components are being created and declared, components must start with uppercase, otherwise will assume it is a <HTML> renderable element in lowercase.
+## Installation
+### Using CDN
+In `index.html`, insert links to React CDN library, like below:
+```html
+<script crossorigin src=
+    "https://unpkg.com/react@16/umd/react.development.js">
+</script>
 
-## Terminal
+<script crossorigin src=
+    "https://unpkg.com/react-dom@16/umd/react-dom.development.js">
+</script>
+
+<script src=
+    "./app.js">
+</script>
+```
+
+### Using create-react-app in Terminal
 To initialise a new React project:
 
 ```
@@ -26,7 +40,7 @@ $ create-react-app [project-name]
 $ cd [project-name]
 ```
 
-It will create a director called `project-name`.
+It will create a directory called `project-name`.
 
 Inside that directory, it will generate the initial project structure and install the transitive dependencies:
 
@@ -67,6 +81,113 @@ Open http://localhost:3000 to view it in the browser.
 * Keep additional logic out of components modules (e.g. array iteration); separation of functions and concerns.
 * Only ternary expressions can be used in App.js file (will not take if statements).
 
+
+## React Elements
+Any time React components are created and declared, components must start with uppercase, otherwise will assume it is a <HTML> renderable element in lowercase.
+
+React renders an JavaScript object into HTML - doesn't create a real DOM node, but 'describes' DOM nodes. Everything rendered inside the root DOM element is managed through the `ReactDOM.render()` function in the `index.js` file:
+
+```js
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+React components are anchored to the main `root` container in the main HTML file:
+```html
+    <div id='root'></div>
+```
+
+### Using React.createElement()
+Without JSX, the structure of React elements in JavaScript:
+
+```js
+const [name] = React.createElement(
+//     [HTML],
+//     [props - i.e. [name].props],
+//     [child, i.e. [name].props.children],
+//     Anything rendered after second argument will be considered a child 
+)
+
+const title = React.createElement(
+    'h1',
+    { id: 'main-title', title: 'This is the title.'},
+    'My first React element!'
+);
+
+const desc = React.createElement(
+    'p',
+    null,
+    'I just learned how to create a React node and render it to the DOM!'
+)
+
+const header = React.createElement(
+    'header',
+    null,
+    title,
+    desc
+)
+
+ReactDOM.render(
+    header,
+    document.getElementById('root')
+);
+```
+
+### Using JSX
+JSX is a syntax extension to JavaScript that is used with React to describe elements in the UI.
+
+JSX is not valid JavaScript or HTML - to create React elements with JSX, it needs to be 'transpiled' into React.createElement() calls
+
+As JSX is an extension of JavaScript, it accepts any regular JS expressions in curly braces {}; this allows JSX to be used dynamically.
+
+```html
+<script src=
+    "https://unpkg.com/babel-standalone@6/babel.min.js">
+</script>
+
+<script type="text/babel" src=
+    "./app.js">
+</script>
+
+```
+
+## React Components
+A component is a piece of UI that can be reused. React components must be declared with an uppercase letter, to differentiate custom elements from native DOM elements. In JSX, lower case tags will be assumed to be HTML.
+
+To create a React component:
+1. Define the component as a JavaScript function or class.
+2. Display the component in the UI with a JSX tag.
+
+React functions and classes will return React elements.
+
+```js
+function Header() {
+    return (
+      <header>
+        <h1>Scoreboard</h1>
+        <span className="stats">Players: 1</span>
+      </header>
+    );
+}
+  
+ReactDOM.render(
+    <Header />,
+    document.getElementById('root')
+);
+```
+
+## React Props
+Props are a list of properties to pass data to a component.
+
+Components are customised and made reusable with props.
+
+Using Props:
+1. Define the props in a component's JSX tag.
+2. Enable the use of props in a component.
+
+## State
+Lorem ipsum
+
+# create-react-app
 ## Boilerplate
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
