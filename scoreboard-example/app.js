@@ -43,20 +43,32 @@ const Player = (props) => {
 }
 
 class Counter extends React.Component {
+    // Moved score into a state object, instead of getting this from props
+    state = {
+        score: 0
+    };
 
-    constructor() {
-        super()
-        this.state = {
-            score: 0
-        }
+    // Whenever the click event handler is triggered, the score will be increment/decremented
+    // State is never modified directly - only by using setState() method to indicate state has changed
+    incrementScore = () => {
+        // console.log('Hi from inside incrementScore!');
+        this.setState({
+            score: this.state.score + 1
+        });
     }
+    decrementScore = () => {
+        this.setState({
+            score: this.state.score - 1
+        });
+    }
+
     // If either props or state changes, React executes the render() method to update what gets displayed to user
     render() {
         return (
             <div className="counter">
-                <button className="counter-action decrement"> - </button>
+                <button className="counter-action decrement" onClick={() => this.decrementScore()}> - </button>
                 <span className="counter-score">{ this.state.score }</span>
-                <button className="counter-action increment"> + </button>
+                <button className="counter-action increment" onClick={() => this.incrementScore()}> + </button>
             </div>
         );
     }
