@@ -49,9 +49,11 @@ class App extends Component {
         <Header />
         {
           projectArray.map(project =>
-            project.public? <Project name={project.name}
-            description={project.description} url = {project.url}
-            public = {project.public}/> : null )
+           <Project
+            name={project.name}
+            description={project.description}
+            url={project.url}
+            public={project.public}/>)
         }
         {
           workExperienceArray.map(job =>
