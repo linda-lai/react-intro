@@ -17,7 +17,7 @@ React is a JavaScript library for building user interfaces.
 
 ## Installation
 ### Using CDN
-In `index.html`, insert links to React CDN library, like below:
+In `index.html`, the React CDN library can be called directly into HTML files without additional packages like below:
 ```html
 <script crossorigin src=
     "https://unpkg.com/react@16/umd/react.development.js">
@@ -33,8 +33,12 @@ In `index.html`, insert links to React CDN library, like below:
 ```
 
 ### Using create-react-app in Terminal
-To initialise a new React project:
+To install all required dependencies (as listed in `package.json` file):
+```
+$ npm install
+```
 
+To initialise a new React project using `create-react-app` node package:
 ```
 $ create-react-app [project-name]
 $ cd [project-name]
@@ -222,7 +226,18 @@ Not all elements need a key prop - only when creating elements by iterating over
 
 In React, **"state"** is the data you want to track in your app. State is what allows you to create components that are dynamic and interactive, and it's the only data that changes over time.
 
+The only required method in a class component is:
+```js
+$ render()
+```
+
 If a component is only rendering props in the UI, use a stateless functional component with the `props` passed in as an argument.
+
+Types of state:
+1. *Application State*: data that is available throughout the entire application.
+2. *Component State*: state that is specific to a component and not shared outside of the component.
+
+When you create a class component that extends from React.Component, any custom methods you create are not bound to the component by default. You need to bind your custom methods, so that this refers to the component instance.
 
 # create-react-app
 ## Boilerplate
