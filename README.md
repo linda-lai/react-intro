@@ -1,4 +1,4 @@
-# React
+# React Intro: Portfolio
 Notes and practice creating and testing components in React.
 
 |[![Linda Lai](assets/contributors-linda-lai-70x70.jpg)](https://github.com/linda-lai) |
@@ -12,6 +12,7 @@ Make a simple portfolio HTML page using stateless functional components.
 * React: https://reactjs.org/
 * Babel: https://babeljs.io/
 * create-react-app: https://github.com/facebook/create-react-app
+* Pete Hunt - React: Rethinking best practices -- JSConf EU 2013: https://www.youtube.com/watch?v=x7cQ3mrcKaY 
 
 ## Summary
 React is a JavaScript library for building user interfaces.
